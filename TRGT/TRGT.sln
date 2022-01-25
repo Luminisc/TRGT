@@ -5,6 +5,12 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TRGT", "TRGT\TRGT.csproj", "{DD0B25FA-B1AA-428D-AA9B-AE5B3BC6C8D3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TRGT.Sandbox", "TRGT.Sandbox", "{D58FAF89-D53A-4180-9BAA-81F078417787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRGT.PluginCore", "TRGT.Sandbox\TRGT.PluginCore\TRGT.PluginCore.csproj", "{245BBB9C-356A-4F6E-A709-CED29153B5AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRGT.PluginTest", "TRGT.Sandbox\TRGT.PluginTest\TRGT.PluginTest.csproj", "{B4A918C4-EEBD-44ED-B2A9-6E835FEEA938}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,9 +23,21 @@ Global
 		{DD0B25FA-B1AA-428D-AA9B-AE5B3BC6C8D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD0B25FA-B1AA-428D-AA9B-AE5B3BC6C8D3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DD0B25FA-B1AA-428D-AA9B-AE5B3BC6C8D3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{245BBB9C-356A-4F6E-A709-CED29153B5AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{245BBB9C-356A-4F6E-A709-CED29153B5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{245BBB9C-356A-4F6E-A709-CED29153B5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{245BBB9C-356A-4F6E-A709-CED29153B5AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4A918C4-EEBD-44ED-B2A9-6E835FEEA938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4A918C4-EEBD-44ED-B2A9-6E835FEEA938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4A918C4-EEBD-44ED-B2A9-6E835FEEA938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4A918C4-EEBD-44ED-B2A9-6E835FEEA938}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{245BBB9C-356A-4F6E-A709-CED29153B5AB} = {D58FAF89-D53A-4180-9BAA-81F078417787}
+		{B4A918C4-EEBD-44ED-B2A9-6E835FEEA938} = {D58FAF89-D53A-4180-9BAA-81F078417787}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}

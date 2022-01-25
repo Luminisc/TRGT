@@ -8,3 +8,8 @@
 ### Preparations
 1. Enable developer mode
 	https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+
+
+### Just links
+1. I hate permissions and Android
+	https://stackoverflow.com/a/53201077/5077919
