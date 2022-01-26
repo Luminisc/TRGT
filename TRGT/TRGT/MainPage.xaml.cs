@@ -1,16 +1,18 @@
 ﻿namespace TRGT;
 
 using System.IO;
+using System.Reflection;
+using TRGT.PluginCore;
 
 public partial class MainPage : ContentPage
 {
     int count = 0;
-    public string ProcessPath { get; set; }
+    public string Logs { get; set; }
 
     public MainPage()
     {
         InitializeComponent();
-        ProcessPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + Environment.NewLine
+        Logs = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + Environment.NewLine
             + Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + Environment.NewLine
             + Environment.GetFolderPath(Environment.SpecialFolder.Personal) + Environment.NewLine
             + Environment.ProcessPath + Environment.NewLine
@@ -38,20 +40,49 @@ public partial class MainPage : ContentPage
         Directory.CreateDirectory(pluginFolderPath);
         File.WriteAllText(filePath, "Hey! I'm writing!");
 
-        ProcessPath = $"Saved file to: {filePath}";
-        OnPropertyChanged(nameof(ProcessPath));
+        Logs = $"Saved file to: {filePath}";
+        OnPropertyChanged(nameof(Logs));
+    }
+
+    private void TestLoading(object sender, EventArgs e)
+    {
+        var pluginFolderPath = GetPluginsFolder();
+        var filePath = Path.Combine(pluginFolderPath, "TRGT.PluginTest.dll");
+
+        var pluginAssembly = Assembly.LoadFile(filePath);
+        var pluginType = pluginAssembly.GetTypes()
+            .Where(x => x.IsPublic && !x.IsAbstract && typeof(IPlugin).IsAssignableFrom(x))
+            .First();
+
+        var pluginInstance = (IPlugin)Activator.CreateInstance(pluginType);
+
+        var control = pluginInstance.GetView();
+        componentsStack.Add(control);
+
+        Logs = $"Loaded plugin: {pluginType.Name}{Environment.NewLine}"
+            + $"Initialize: {pluginInstance.Initialize()}{Environment.NewLine}"
+            + $"DemoName: {pluginInstance.GetName()}{Environment.NewLine}";
+        OnPropertyChanged(nameof(Logs));
     }
 
     private string GetPluginsFolder()
     {
+        var gameFilesFolder = string.Empty;
 #if ANDROID
+        // /storage/emulated/0/Android/data/com.companyname.trgt/files
         var androidAppPath = Android.App.Application.Context.GetExternalFilesDir(null).AbsolutePath;
-        return Path.Combine(androidAppPath, "plugins");
+        gameFilesFolder = androidAppPath;
 #endif
 #if WINDOWS
-		return Path.Combine(Directory.GetParent(Environment.ProcessPath).FullName, "plugins");
+		gameFilesFolder = Directory.GetParent(Environment.ProcessPath).FullName;
 #endif
-        throw new PlatformNotSupportedException();
+
+        if (string.IsNullOrEmpty(gameFilesFolder))
+        {
+            throw new PlatformNotSupportedException();
+        }
+
+        return Path.Combine(gameFilesFolder, "plugins");
     }
 }
 

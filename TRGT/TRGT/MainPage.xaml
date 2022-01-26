@@ -4,7 +4,7 @@
              BackgroundColor="{DynamicResource SecondaryColor}">
 
     <ScrollView>
-        <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+        <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
               Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
 
             <Label 
@@ -37,7 +37,7 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
-            
+
             <!--<Image Grid.Row="4"
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
@@ -45,28 +45,32 @@
                 HeightRequest="310"
                 HorizontalOptions="Center" />-->
 
+            <!-- Separator, there is no working separator yet -->
             <BoxView 
                 Color="Black"
                 HeightRequest="1"
                 HorizontalOptions="FillAndExpand"
-                Grid.Row="4" /> <!-- Separator, there is no working separator yet -->
+                Grid.Row="4" />
 
-            <Button 
-                Text="Test saving"
-                Grid.Row="5"
-                Clicked="TestSaving"
-                HorizontalOptions="Center" />
-            
+            <StackLayout Grid.Row="5" Orientation="Horizontal">
+                <Button 
+                    Text="Test saving"
+                    Clicked="TestSaving"/>
+                <Button 
+                    Text="Test loading"
+                    Clicked="TestLoading"/>
+            </StackLayout>
+
             <Label 
-                Text="{Binding ProcessPath}"
+                Text="{Binding Logs}"
                 Grid.Row="6"
                 FontSize="18"
                 FontAttributes="Bold"
                 HorizontalOptions="Center"/>
-               
             
-            
-            
+            <StackLayout Grid.Row="7" Orientation="Horizontal" x:Name="componentsStack">
+                
+            </StackLayout>
         </Grid>
     </ScrollView>
 </ContentPage>

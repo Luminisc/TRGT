@@ -13,3 +13,4 @@
 ### Just links
 1. I hate permissions and Android
 	https://stackoverflow.com/a/53201077/5077919
+	https://stackoverflow.com/a/66366102/5077919 - Need to read about new permissions approach

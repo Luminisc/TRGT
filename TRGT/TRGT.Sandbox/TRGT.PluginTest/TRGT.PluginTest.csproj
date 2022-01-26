@@ -18,4 +18,10 @@
 	  <ProjectReference Include="..\TRGT.PluginCore\TRGT.PluginCore.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="Controls\DemoControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

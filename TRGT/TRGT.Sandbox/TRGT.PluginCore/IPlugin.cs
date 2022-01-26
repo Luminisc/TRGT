@@ -4,5 +4,6 @@
     {
         public bool Initialize();
         public string GetName();
+        public IView GetView();
     }
 }
