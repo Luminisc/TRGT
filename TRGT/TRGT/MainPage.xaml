@@ -1,22 +1,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TRGT.MainPage"
+             NavigationPage.HasNavigationBar="False"
              BackgroundColor="{DynamicResource SecondaryColor}">
 
     <ScrollView>
-        <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
-              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
-
+        <StackLayout Orientation="Vertical" 
+                     Padding="{OnPlatform iOS='30,60,30,30', Default='30'}" 
+                     Spacing="10">
             <Label 
                 Text="Hello, World!"
-                Grid.Row="0"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
             <Label 
                 Text="Welcome to .NET Multi-platform App UI"
-                Grid.Row="1"
                 SemanticProperties.HeadingLevel="Level1"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
@@ -24,7 +23,6 @@
 
             <Label 
                 Text="Current count: 0"
-                Grid.Row="2"
                 FontSize="18"
                 FontAttributes="Bold"
                 x:Name="CounterLabel"
@@ -33,7 +31,6 @@
             <Button 
                 Text="Click me"
                 FontAttributes="Bold"
-                Grid.Row="3"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
@@ -47,30 +44,36 @@
 
             <!-- Separator, there is no working separator yet -->
             <BoxView 
-                Color="Black"
+                Color="{DynamicResource PrimaryColor}"
                 HeightRequest="1"
-                HorizontalOptions="FillAndExpand"
-                Grid.Row="4" />
+                HorizontalOptions="FillAndExpand"/>
 
-            <StackLayout Grid.Row="5" Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal">
                 <Button 
                     Text="Test saving"
                     Clicked="TestSaving"/>
                 <Button 
                     Text="Test loading"
                     Clicked="TestLoading"/>
+                <Button 
+                    Text="Test new page"
+                    Clicked="TestPageOpen"/>
             </StackLayout>
 
             <Label 
                 Text="{Binding Logs}"
-                Grid.Row="6"
-                FontSize="18"
+                FontSize="18"   
                 FontAttributes="Bold"
                 HorizontalOptions="Center"/>
-            
-            <StackLayout Grid.Row="7" Orientation="Horizontal" x:Name="componentsStack">
-                
+
+            <StackLayout Orientation="Horizontal" x:Name="componentsStack">
+
             </StackLayout>
-        </Grid>
+        </StackLayout>
+        <!--<Grid RowSpacing="5" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+
+            
+        </Grid>-->
     </ScrollView>
 </ContentPage>

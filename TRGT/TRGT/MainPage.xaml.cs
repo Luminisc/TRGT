@@ -84,5 +84,10 @@ public partial class MainPage : ContentPage
 
         return Path.Combine(gameFilesFolder, "plugins");
     }
+
+    private void TestPageOpen(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new ExperimentalPage(), true);
+    }
 }
 
