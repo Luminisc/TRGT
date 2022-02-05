@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+        <!--<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>-->
+        <TargetFrameworks>net6.0-android</TargetFrameworks>
         <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks>
         <OutputType>Exe</OutputType>
         <RootNamespace>TRGT</RootNamespace>
@@ -50,13 +51,16 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\TRGT.Core\TRGT.Core.Platform\TRGT.Core.Platform.csproj" />
+        <ProjectReference Include="..\TRGT.Core\TRGT.Core\TRGT.Core.csproj" />
+        <ProjectReference Include="..\TRGT.Sandbox\TRGT.Experiments\TRGT.Experiments.csproj" />
         <ProjectReference Include="..\TRGT.Sandbox\TRGT.PluginCore\TRGT.PluginCore.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <MauiXaml Update="Pages\ExperimentalPage.xaml">
-            <Generator>MSBuild:Compile</Generator>
-        </MauiXaml>
+      <MauiXaml Update="CommonResources.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
     </ItemGroup>
 
     <PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
