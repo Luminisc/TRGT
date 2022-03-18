@@ -5,6 +5,11 @@
 3. dotnet workload install maui
 4. https://marketplace.visualstudio.com/items?itemName=egvijayanand.maui-templates
 
+After VS update:
+1. dotnet workload update --from-previous-sdk
+2. dotnet restore
+3. dotnet clean
+
 ### Preparations
 1. Enable developer mode
 	https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development

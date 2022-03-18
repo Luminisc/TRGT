@@ -5,68 +5,75 @@
              Title="Playground"
              BackgroundColor="White">
     <ScrollView>
-        <StackLayout Orientation="Vertical" 
+        <Grid ColumnDefinitions="30*,70*">
+            <StackLayout Grid.Column="0">
+                <Label Text="{Binding Logs}"/>
+            </StackLayout>
+            <StackLayout Grid.Column="1" Orientation="Vertical" 
                      Padding="{OnPlatform iOS='30,60,30,30', Default='30'}" 
-                     Spacing="10">
-            <Label 
+                     Spacing="10"
+                     >
+                <Label 
                 Text="Hello, World!"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
-            <Label 
+                <Label 
                 Text="Welcome to .NET Multi-platform App UI"
                 SemanticProperties.HeadingLevel="Level1"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <Label 
+                <Label 
                 Text="Current count: 0"
                 FontSize="18"
                 FontAttributes="Bold"
                 x:Name="CounterLabel"
                 HorizontalOptions="Center" />
 
-            <Button 
+                <Button 
                 Text="Click me"
                 FontAttributes="Bold"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
 
-            <Image
+                <Image
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 WidthRequest="250"
                 HeightRequest="310"
                 HorizontalOptions="Center" />
 
-            <!-- Separator, there is no working separator yet -->
-            <BoxView 
+                <!-- Separator, there is no working separator yet -->
+                <BoxView 
                 Color="{DynamicResource PrimaryColor}"
                 HeightRequest="1"
                 HorizontalOptions="FillAndExpand"/>
 
-            <StackLayout Orientation="Horizontal">
-                <Button 
+                <StackLayout Orientation="Horizontal">
+                    <Button 
                     Text="Test saving"
                     Clicked="TestSaving"/>
-                <Button 
+                    <Button 
                     Text="Test loading"
                     Clicked="TestLoading"/>
-            </StackLayout>
+                </StackLayout>
 
-            <Label 
+                <Label 
                 Text="{Binding Logs}"
                 FontSize="18"   
                 FontAttributes="Bold"
                 HorizontalOptions="Center"/>
 
-            <StackLayout Orientation="Horizontal" x:Name="componentsStack">
+                <StackLayout Orientation="Horizontal" x:Name="componentsStack">
 
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </Grid>
+        
         <!--<Grid RowSpacing="5" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
               Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
 

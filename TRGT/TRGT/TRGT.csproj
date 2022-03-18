@@ -15,7 +15,7 @@
         <ApplicationTitle>TRGT</ApplicationTitle>
 
         <!-- App Identifier -->
-        <ApplicationId>com.companyname.trgt</ApplicationId>
+        <ApplicationId>com.luminisc.trgt</ApplicationId>
 
         <!-- Versions -->
         <ApplicationVersion>1</ApplicationVersion>
@@ -28,6 +28,7 @@
         <SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-android'">21.0</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</SupportedOSPlatformVersion>
         <TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
+        <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
 
     <ItemGroup>

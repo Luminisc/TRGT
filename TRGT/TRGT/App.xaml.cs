@@ -10,7 +10,7 @@ public partial class App : Application
 
         //MainPage = new NavigationPage(new MainPage());
         MainPage = new MainPage();
-        UserAppTheme = OSAppTheme.Dark;
+        UserAppTheme = AppTheme.Dark;
         current = this;
     }
 
