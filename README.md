@@ -2,7 +2,8 @@
 1. VS 2022 Preview + MAUI Android + MAUI Win
 2. dotnet tool install -g Redth.Net.Maui.Check
    maui-check
-3. dotnet workload install maui
+3. dotnet workload install maui-android
+   dotnet workload install maui-windows
 4. https://marketplace.visualstudio.com/items?itemName=egvijayanand.maui-templates
 
 After VS update:

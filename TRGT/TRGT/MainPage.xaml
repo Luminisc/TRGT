@@ -2,7 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TRGT.MainPage"
              BackgroundColor="{DynamicResource SecondaryColor}"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             Title="Tabletop Roleplaying Games Tools">
 
     <ScrollView>
         <StackLayout Orientation="Vertical" 

@@ -45,11 +45,12 @@
         <MauiFont Include="Resources\Fonts\*" />
     </ItemGroup>
 
-    <ItemGroup Condition="$(TargetFramework.Contains('-windows'))">
-        <!-- Required - WinUI does not yet have buildTransitive for everything -->
-        <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0" />
-        <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.30" />
-    </ItemGroup>
+    <!-- No longer needed: https://github.com/dotnet/maui/wiki/Migrating-to-RC1#windows-package-references -->
+    <!--<ItemGroup Condition="$(TargetFramework.Contains('-windows'))">
+        --><!-- Required - WinUI does not yet have buildTransitive for everything --><!--
+        <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.1" />
+        <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.1" />
+    </ItemGroup>-->
 
     <ItemGroup>
         <ProjectReference Include="..\TRGT.Core\TRGT.Core.Platform\TRGT.Core.Platform.csproj" />

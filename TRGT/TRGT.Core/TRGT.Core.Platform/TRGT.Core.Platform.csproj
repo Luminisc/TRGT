@@ -14,14 +14,4 @@
 		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
 	</PropertyGroup>
 
-	<ItemGroup>
-	  <MauiXaml Remove="Page1.xaml" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Page Include="Page1.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
-	</ItemGroup>
-
 </Project>

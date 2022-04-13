@@ -10,9 +10,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
         x:Class="TRGT.Experiments.ExperimentsPage"
         xmlns:local="clr-namespace:TRGT.Experiments"
-        Title="Experiments Page"
-        BackgroundColor="{DynamicResource SecondaryColor}">
-
+        Title="Experiments Page" 
+       BackgroundColor="Green"
+    >
+    <Shell.FlyoutBackground>
+        <LinearGradientBrush StartPoint="0,0"
+                             EndPoint="1,1">
+            <GradientStop Color="#8A2387"
+                          Offset="0.1" />
+            <GradientStop Color="#E94057"
+                          Offset="0.6" />
+            <GradientStop Color="#F27121"
+                          Offset="1.0" />
+        </LinearGradientBrush>
+    </Shell.FlyoutBackground>
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
     
@@ -21,7 +32,7 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="Shell.BackgroundColor" Value="Red" /> <!-- works only on android :( -->
                 <Setter Property="Shell.ForegroundColor" Value="{StaticResource SecondaryColor}" />
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
@@ -79,7 +90,7 @@
             </Style>
         </ResourceDictionary>
     </Shell.Resources>
-    
+
     <!-- 
         When the Flyout is visible this defines the content to display in the flyout.
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
@@ -90,7 +101,7 @@
             Route="Playground"
             ContentTemplate="{DataTemplate local:Playground}"/>
     </FlyoutItem>
-    <FlyoutItem Title="About-Experiments">
+    <FlyoutItem Title="About Experiments">
         <ShellContent 
             Route="AboutExperiments"
             ContentTemplate="{DataTemplate local:AboutExperiments}"/>
@@ -104,19 +115,22 @@
     <!--<MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
     </MenuItem>-->
 
-     <!--Optional Templates 
+    <!--Optional Templates 
     // These may be provided inline as below or as separate classes.
 
     // This header appears at the top of the Flyout.
-    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyout-header--><!--
+    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyout-header-->
+    <!--
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
             <Grid>ContentHere</Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
 
-    --><!--// ItemTemplate is for ShellItems as displayed in a Flyout
-    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-flyoutitem-appearance--><!--
+    -->
+    <!--// ItemTemplate is for ShellItems as displayed in a Flyout
+    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-flyoutitem-appearance-->
+    <!--
     <Shell.ItemTemplate>
         <DataTemplate>
             <ContentView>
@@ -125,8 +139,10 @@
         </DataTemplate>
     </Shell.ItemTemplate>
 
-    --><!--// MenuItemTemplate is for MenuItems as displayed in a Flyout
-    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-menuitem-appearance--><!--
+    -->
+    <!--// MenuItemTemplate is for MenuItems as displayed in a Flyout
+    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-menuitem-appearance-->
+    <!--
     <Shell.MenuItemTemplate>
         <DataTemplate>
             <ContentView>
@@ -134,5 +150,5 @@
             </ContentView>
         </DataTemplate>
     </Shell.MenuItemTemplate>-->
-     
+
 </Shell>
